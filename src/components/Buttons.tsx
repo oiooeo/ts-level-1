@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 interface DeleteButtonProps {
   item: { id: number };
@@ -12,12 +13,9 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
   children,
 }) => {
   return (
-    <button
-      onClick={() => clickDeleteButtonHandler(item.id)}
-      className="deleteBtn"
-    >
+    <StyledDeleteButton onClick={() => clickDeleteButtonHandler(item.id)}>
       {children}
-    </button>
+    </StyledDeleteButton>
   );
 };
 
@@ -33,11 +31,32 @@ export const UpdateButton: React.FC<UpdateButtonProps> = ({
   children,
 }) => {
   return (
-    <button
-      onClick={() => clickUpdateButtonHandler(item.id)}
-      className="updateBtn"
-    >
+    <StyledUpdateButton onClick={() => clickUpdateButtonHandler(item.id)}>
       {children}
-    </button>
+    </StyledUpdateButton>
   );
 };
+
+const StyledDeleteButton = styled.button`
+  width: 100px;
+  padding: 10px;
+  background-color: #ff4848;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  margin: 0px 10px;
+  cursor: pointer;
+  font-weight: 700;
+`;
+
+const StyledUpdateButton = styled.button`
+  width: 100px;
+  padding: 10px;
+  background-color: #60a94d;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  margin: 0px 10px;
+  cursor: pointer;
+  font-weight: 700;
+`;
